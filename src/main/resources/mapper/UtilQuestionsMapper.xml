@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilQuestionsMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilQuestions">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="questions_id" jdbcType="INTEGER" property="questionsId" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="questions" jdbcType="VARCHAR" property="questions" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tuibi.dianwan.entity.UtilQuestions">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="frequently" jdbcType="LONGVARCHAR" property="frequently" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    questions_id, group_id, questions, sort, lrsj, lrzh, zt, bz, gxsj
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    frequently
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.tuibi.dianwan.entity.UtilQuestionsExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from util_questions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilQuestionsExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_questions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilQuestionsExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_questions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilQuestionsExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_questions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_questions
+    <set>
+      <if test="record.questionsId != null">
+        questions_id = #{record.questionsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.questions != null">
+        questions = #{record.questions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frequently != null">
+        frequently = #{record.frequently,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_questions
+    set questions_id = #{record.questionsId,jdbcType=INTEGER},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      questions = #{record.questions,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      frequently = #{record.frequently,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_questions
+    set questions_id = #{record.questionsId,jdbcType=INTEGER},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      questions = #{record.questions,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

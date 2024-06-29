@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UserMachineGameMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UserMachineGame">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="game_id" jdbcType="VARCHAR" property="gameId" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="machine_id" jdbcType="VARCHAR" property="machineId" />
+    <result column="is_game" jdbcType="CHAR" property="isGame" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="user_code_src" jdbcType="VARCHAR" property="userCodeSrc" />
+    <result column="data_id" jdbcType="VARCHAR" property="dataId" />
+    <result column="user_cost_log_id" jdbcType="VARCHAR" property="userCostLogId" />
+    <result column="sxsj" jdbcType="VARCHAR" property="sxsj" />
+    <result column="sx_status" jdbcType="CHAR" property="sxStatus" />
+    <result column="ddrcsj" jdbcType="VARCHAR" property="ddrcsj" />
+    <result column="rank" jdbcType="INTEGER" property="rank" />
+    <result column="channel_id" jdbcType="INTEGER" property="channelId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tuibi.dianwan.entity.UserMachineGame">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="bz" jdbcType="LONGVARCHAR" property="bz" />
+    <result column="game_sendData" jdbcType="LONGVARCHAR" property="gameSenddata" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    game_id, user_code, machine_id, is_game, lrsj, lrzh, zt, gxsj, user_code_src, data_id, 
+    user_cost_log_id, sxsj, sx_status, ddrcsj, rank, channel_id
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    bz, game_sendData
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.tuibi.dianwan.entity.UserMachineGameExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_machine_game
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UserMachineGameExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_machine_game
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UserMachineGameExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from user_machine_game
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UserMachineGameExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from user_machine_game
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update user_machine_game
+    <set>
+      <if test="record.gameId != null">
+        game_id = #{record.gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCode != null">
+        user_code = #{record.userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineId != null">
+        machine_id = #{record.machineId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isGame != null">
+        is_game = #{record.isGame,jdbcType=CHAR},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCodeSrc != null">
+        user_code_src = #{record.userCodeSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataId != null">
+        data_id = #{record.dataId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCostLogId != null">
+        user_cost_log_id = #{record.userCostLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxsj != null">
+        sxsj = #{record.sxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxStatus != null">
+        sx_status = #{record.sxStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.ddrcsj != null">
+        ddrcsj = #{record.ddrcsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rank != null">
+        rank = #{record.rank,jdbcType=INTEGER},
+      </if>
+      <if test="record.channelId != null">
+        channel_id = #{record.channelId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.gameSenddata != null">
+        game_sendData = #{record.gameSenddata,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update user_machine_game
+    set game_id = #{record.gameId,jdbcType=VARCHAR},
+      user_code = #{record.userCode,jdbcType=VARCHAR},
+      machine_id = #{record.machineId,jdbcType=VARCHAR},
+      is_game = #{record.isGame,jdbcType=CHAR},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      user_code_src = #{record.userCodeSrc,jdbcType=VARCHAR},
+      data_id = #{record.dataId,jdbcType=VARCHAR},
+      user_cost_log_id = #{record.userCostLogId,jdbcType=VARCHAR},
+      sxsj = #{record.sxsj,jdbcType=VARCHAR},
+      sx_status = #{record.sxStatus,jdbcType=CHAR},
+      ddrcsj = #{record.ddrcsj,jdbcType=VARCHAR},
+      rank = #{record.rank,jdbcType=INTEGER},
+      channel_id = #{record.channelId,jdbcType=INTEGER},
+      bz = #{record.bz,jdbcType=LONGVARCHAR},
+      game_sendData = #{record.gameSenddata,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update user_machine_game
+    set game_id = #{record.gameId,jdbcType=VARCHAR},
+      user_code = #{record.userCode,jdbcType=VARCHAR},
+      machine_id = #{record.machineId,jdbcType=VARCHAR},
+      is_game = #{record.isGame,jdbcType=CHAR},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      user_code_src = #{record.userCodeSrc,jdbcType=VARCHAR},
+      data_id = #{record.dataId,jdbcType=VARCHAR},
+      user_cost_log_id = #{record.userCostLogId,jdbcType=VARCHAR},
+      sxsj = #{record.sxsj,jdbcType=VARCHAR},
+      sx_status = #{record.sxStatus,jdbcType=CHAR},
+      ddrcsj = #{record.ddrcsj,jdbcType=VARCHAR},
+      rank = #{record.rank,jdbcType=INTEGER},
+      channel_id = #{record.channelId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+
+  <select id="getRecentlyPlayUserMachineGameList" resultType="com.tuibi.dianwan.entity.UserMachineGame">
+    select <include refid="Base_Column_List" /> from user_machine_game
+    where zt = "2" and is_game = '1' and channel_id = #{channelId}
+    order by lrsj desc
+    limit ${topNum}
+  </select>
+
+  <select id="getGroupMachineIdByGxsjRecord" parameterType="map" resultType="java.lang.String">
+    select machine_id from user_machine_game
+    where gxsj &lt;= #{gxsj} and user_code != "0"
+    group by machine_id;
+  </select>
+</mapper>

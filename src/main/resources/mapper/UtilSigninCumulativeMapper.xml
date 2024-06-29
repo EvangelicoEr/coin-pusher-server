@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilSigninCumulativeMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilSigninCumulative">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cumulative_id" jdbcType="INTEGER" property="cumulativeId" />
+    <result column="cumulative_time" jdbcType="INTEGER" property="cumulativeTime" />
+    <result column="cumulative_type" jdbcType="INTEGER" property="cumulativeType" />
+    <result column="cumulative_num" jdbcType="INTEGER" property="cumulativeNum" />
+    <result column="cumulative_type_id" jdbcType="INTEGER" property="cumulativeTypeId" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="INTEGER" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    cumulative_id, cumulative_time, cumulative_type, cumulative_num, cumulative_type_id, 
+    lrsj, lrzh, zt, bz, gxsj
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilSigninCumulativeExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_signin_cumulative
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilSigninCumulativeExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_signin_cumulative
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilSigninCumulativeExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_signin_cumulative
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_signin_cumulative
+    <set>
+      <if test="record.cumulativeId != null">
+        cumulative_id = #{record.cumulativeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cumulativeTime != null">
+        cumulative_time = #{record.cumulativeTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.cumulativeType != null">
+        cumulative_type = #{record.cumulativeType,jdbcType=INTEGER},
+      </if>
+      <if test="record.cumulativeNum != null">
+        cumulative_num = #{record.cumulativeNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.cumulativeTypeId != null">
+        cumulative_type_id = #{record.cumulativeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_signin_cumulative
+    set cumulative_id = #{record.cumulativeId,jdbcType=INTEGER},
+      cumulative_time = #{record.cumulativeTime,jdbcType=INTEGER},
+      cumulative_type = #{record.cumulativeType,jdbcType=INTEGER},
+      cumulative_num = #{record.cumulativeNum,jdbcType=INTEGER},
+      cumulative_type_id = #{record.cumulativeTypeId,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=INTEGER},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

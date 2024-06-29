@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilRewardMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilReward">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="reward_id" jdbcType="INTEGER" property="rewardId" />
+    <result column="reward_name" jdbcType="VARCHAR" property="rewardName" />
+    <result column="reward_type" jdbcType="INTEGER" property="rewardType" />
+    <result column="reward_achieve" jdbcType="INTEGER" property="rewardAchieve" />
+    <result column="reward_num" jdbcType="INTEGER" property="rewardNum" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="INTEGER" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="reward_time" jdbcType="INTEGER" property="rewardTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    reward_id, reward_name, reward_type, reward_achieve, reward_num, sort, lrsj, lrzh, 
+    zt, bz, gxsj, reward_time
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilRewardExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_reward
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilRewardExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_reward
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilRewardExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_reward
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_reward
+    <set>
+      <if test="record.rewardId != null">
+        reward_id = #{record.rewardId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rewardName != null">
+        reward_name = #{record.rewardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rewardType != null">
+        reward_type = #{record.rewardType,jdbcType=INTEGER},
+      </if>
+      <if test="record.rewardAchieve != null">
+        reward_achieve = #{record.rewardAchieve,jdbcType=INTEGER},
+      </if>
+      <if test="record.rewardNum != null">
+        reward_num = #{record.rewardNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rewardTime != null">
+        reward_time = #{record.rewardTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_reward
+    set reward_id = #{record.rewardId,jdbcType=INTEGER},
+      reward_name = #{record.rewardName,jdbcType=VARCHAR},
+      reward_type = #{record.rewardType,jdbcType=INTEGER},
+      reward_achieve = #{record.rewardAchieve,jdbcType=INTEGER},
+      reward_num = #{record.rewardNum,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=INTEGER},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      reward_time = #{record.rewardTime,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

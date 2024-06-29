@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilDailyGiftsMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilDailyGifts">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="daily_gifts_id" jdbcType="INTEGER" property="dailyGiftsId" />
+    <result column="gifts_day" jdbcType="INTEGER" property="giftsDay" />
+    <result column="gifts_num" jdbcType="INTEGER" property="giftsNum" />
+    <result column="gifts_money" jdbcType="DOUBLE" property="giftsMoney" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="INTEGER" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="list_ios_id" jdbcType="VARCHAR" property="listIosId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    daily_gifts_id, gifts_day, gifts_num, gifts_money, lrsj, lrzh, zt, bz, gxsj, list_ios_id
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilDailyGiftsExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_daily_gifts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilDailyGiftsExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_daily_gifts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilDailyGiftsExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_daily_gifts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_daily_gifts
+    <set>
+      <if test="record.dailyGiftsId != null">
+        daily_gifts_id = #{record.dailyGiftsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftsDay != null">
+        gifts_day = #{record.giftsDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftsNum != null">
+        gifts_num = #{record.giftsNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftsMoney != null">
+        gifts_money = #{record.giftsMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listIosId != null">
+        list_ios_id = #{record.listIosId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_daily_gifts
+    set daily_gifts_id = #{record.dailyGiftsId,jdbcType=INTEGER},
+      gifts_day = #{record.giftsDay,jdbcType=INTEGER},
+      gifts_num = #{record.giftsNum,jdbcType=INTEGER},
+      gifts_money = #{record.giftsMoney,jdbcType=DOUBLE},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=INTEGER},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      list_ios_id = #{record.listIosId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

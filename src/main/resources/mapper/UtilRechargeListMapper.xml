@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilRechargeListMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilRechargeList">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="list_id" jdbcType="INTEGER" property="listId" />
+    <result column="list_type" jdbcType="VARCHAR" property="listType" />
+    <result column="list_channel" jdbcType="INTEGER" property="listChannel" />
+    <result column="list_ios_id" jdbcType="VARCHAR" property="listIosId" />
+    <result column="list_label" jdbcType="VARCHAR" property="listLabel" />
+    <result column="list_name" jdbcType="VARCHAR" property="listName" />
+    <result column="list_money" jdbcType="DOUBLE" property="listMoney" />
+    <result column="list_get_num" jdbcType="INTEGER" property="listGetNum" />
+    <result column="list_get_integral" jdbcType="INTEGER" property="listGetIntegral" />
+    <result column="list_sort" jdbcType="INTEGER" property="listSort" />
+    <result column="list_data_num" jdbcType="INTEGER" property="listDataNum" />
+    <result column="list_img" jdbcType="VARCHAR" property="listImg" />
+    <result column="is_mended" jdbcType="INTEGER" property="isMended" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="INTEGER" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="voucher_id" jdbcType="INTEGER" property="voucherId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="is_limit" jdbcType="INTEGER" property="isLimit" />
+    <result column="org_list_money" jdbcType="INTEGER" property="orgListMoney" />
+    <result column="now_money" jdbcType="INTEGER" property="nowMoney" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    list_id, list_type, list_channel, list_ios_id, list_label, list_name, list_money, 
+    list_get_num, list_get_integral, list_sort, list_data_num, list_img, is_mended, lrsj, 
+    lrzh, zt, bz, gxsj, voucher_id, nick_name, is_limit, org_list_money, now_money
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilRechargeListExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_recharge_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilRechargeListExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_recharge_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilRechargeListExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_recharge_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_recharge_list
+    <set>
+      <if test="record.listId != null">
+        list_id = #{record.listId,jdbcType=INTEGER},
+      </if>
+      <if test="record.listType != null">
+        list_type = #{record.listType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listChannel != null">
+        list_channel = #{record.listChannel,jdbcType=INTEGER},
+      </if>
+      <if test="record.listIosId != null">
+        list_ios_id = #{record.listIosId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listLabel != null">
+        list_label = #{record.listLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listName != null">
+        list_name = #{record.listName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listMoney != null">
+        list_money = #{record.listMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.listGetNum != null">
+        list_get_num = #{record.listGetNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.listGetIntegral != null">
+        list_get_integral = #{record.listGetIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="record.listSort != null">
+        list_sort = #{record.listSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.listDataNum != null">
+        list_data_num = #{record.listDataNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.listImg != null">
+        list_img = #{record.listImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isMended != null">
+        is_mended = #{record.isMended,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=INTEGER},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.voucherId != null">
+        voucher_id = #{record.voucherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.nickName != null">
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isLimit != null">
+        is_limit = #{record.isLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.orgListMoney != null">
+        org_list_money = #{record.orgListMoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.nowMoney != null">
+        now_money = #{record.nowMoney,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_recharge_list
+    set list_id = #{record.listId,jdbcType=INTEGER},
+      list_type = #{record.listType,jdbcType=VARCHAR},
+      list_channel = #{record.listChannel,jdbcType=INTEGER},
+      list_ios_id = #{record.listIosId,jdbcType=VARCHAR},
+      list_label = #{record.listLabel,jdbcType=VARCHAR},
+      list_name = #{record.listName,jdbcType=VARCHAR},
+      list_money = #{record.listMoney,jdbcType=DOUBLE},
+      list_get_num = #{record.listGetNum,jdbcType=INTEGER},
+      list_get_integral = #{record.listGetIntegral,jdbcType=INTEGER},
+      list_sort = #{record.listSort,jdbcType=INTEGER},
+      list_data_num = #{record.listDataNum,jdbcType=INTEGER},
+      list_img = #{record.listImg,jdbcType=VARCHAR},
+      is_mended = #{record.isMended,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=INTEGER},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      voucher_id = #{record.voucherId,jdbcType=INTEGER},
+      nick_name = #{record.nickName,jdbcType=VARCHAR},
+      is_limit = #{record.isLimit,jdbcType=INTEGER},
+      org_list_money = #{record.orgListMoney,jdbcType=INTEGER},
+      now_money = #{record.nowMoney,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+
+  <select id="getRechargeDayTask" resultType="double" parameterType="map">
+    select ifnull(sum(ifnull(recharge_num,0)),0) as rewardAchieve
+    from user_cost_recharge where user_id=#{userId} and zt=0 and to_days(gxsj) = to_days(now())
+  </select>
+
+  <select id="getRechargeWeekTask" resultType="double" parameterType="map">
+    select ifnull(sum(ifnull(recharge_num,0)),0) as rewardAchieve from user_cost_recharge
+    where user_id=#{userId} and zt=0 and YEARWEEK(date_format(gxsj,'%Y-%m-%d')) = YEARWEEK(now())
+  </select>
+
+  <select id="getRechargeMonthTask" resultType="double" parameterType="map">
+    select ifnull(sum(ifnull(recharge_num,0)),0) as rewardAchieve from user_cost_recharge
+    where user_id=#{userId} and zt=0 and DATE_FORMAT(gxsj,'%Y%m') = DATE_FORMAT(now(),'%Y%m')
+  </select>
+</mapper>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilPlayInstructionsMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilPlayInstructions">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="instructions_id" jdbcType="INTEGER" property="instructionsId" />
+    <result column="instructions_type" jdbcType="INTEGER" property="instructionsType" />
+    <result column="machine_id" jdbcType="VARCHAR" property="machineId" />
+    <result column="instructions_name" jdbcType="VARCHAR" property="instructionsName" />
+    <result column="instructions_content" jdbcType="VARCHAR" property="instructionsContent" />
+    <result column="instructions_sort" jdbcType="INTEGER" property="instructionsSort" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    instructions_id, instructions_type, machine_id, instructions_name, instructions_content, 
+    instructions_sort, lrsj, lrzh, zt, bz, gxsj, link_url
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilPlayInstructionsExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_play_instructions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilPlayInstructionsExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_play_instructions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilPlayInstructionsExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_play_instructions
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_play_instructions
+    <set>
+      <if test="record.instructionsId != null">
+        instructions_id = #{record.instructionsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.instructionsType != null">
+        instructions_type = #{record.instructionsType,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineId != null">
+        machine_id = #{record.machineId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructionsName != null">
+        instructions_name = #{record.instructionsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructionsContent != null">
+        instructions_content = #{record.instructionsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructionsSort != null">
+        instructions_sort = #{record.instructionsSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkUrl != null">
+        link_url = #{record.linkUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_play_instructions
+    set instructions_id = #{record.instructionsId,jdbcType=INTEGER},
+      instructions_type = #{record.instructionsType,jdbcType=INTEGER},
+      machine_id = #{record.machineId,jdbcType=VARCHAR},
+      instructions_name = #{record.instructionsName,jdbcType=VARCHAR},
+      instructions_content = #{record.instructionsContent,jdbcType=VARCHAR},
+      instructions_sort = #{record.instructionsSort,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      link_url = #{record.linkUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

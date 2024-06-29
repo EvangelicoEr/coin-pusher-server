@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.MachineMainMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.MachineMain">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="machine_id" jdbcType="VARCHAR" property="machineId" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="machine_name" jdbcType="VARCHAR" property="machineName" />
+    <result column="machine_logo" jdbcType="VARCHAR" property="machineLogo" />
+    <result column="machine_number" jdbcType="VARCHAR" property="machineNumber" />
+    <result column="machine_mp3" jdbcType="VARCHAR" property="machineMp3" />
+    <result column="machine_order" jdbcType="INTEGER" property="machineOrder" />
+    <result column="machine_detail_img" jdbcType="VARCHAR" property="machineDetailImg" />
+    <result column="machine_price" jdbcType="INTEGER" property="machinePrice" />
+    <result column="machine_alias" jdbcType="VARCHAR" property="machineAlias" />
+    <result column="machine_live_url1" jdbcType="VARCHAR" property="machineLiveUrl1" />
+    <result column="machine_live_url2" jdbcType="VARCHAR" property="machineLiveUrl2" />
+    <result column="machine_type" jdbcType="VARCHAR" property="machineType" />
+    <result column="machine_entry_cost" jdbcType="INTEGER" property="machineEntryCost" />
+    <result column="machine_push_get" jdbcType="INTEGER" property="machinePushGet" />
+    <result column="machine_push_lose" jdbcType="INTEGER" property="machinePushLose" />
+    <result column="user_price" jdbcType="INTEGER" property="userPrice" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="machine_user_time" jdbcType="VARCHAR" property="machineUserTime" />
+    <result column="machine_user_info" jdbcType="VARCHAR" property="machineUserInfo" />
+    <result column="machine_types" jdbcType="INTEGER" property="machineTypes" />
+    <result column="machine_position" jdbcType="INTEGER" property="machinePosition" />
+    <result column="machine_group_num" jdbcType="INTEGER" property="machineGroupNum" />
+    <result column="machine_prize_time" jdbcType="VARCHAR" property="machinePrizeTime" />
+    <result column="machine_bonus_times" jdbcType="DOUBLE" property="machineBonusTimes" />
+    <result column="machine_bonus_user_id" jdbcType="VARCHAR" property="machineBonusUserId" />
+    <result column="machine_watch_time" jdbcType="DOUBLE" property="machineWatchTime" />
+    <result column="machine_flip" jdbcType="INTEGER" property="machineFlip" />
+    <result column="machine_time" jdbcType="INTEGER" property="machineTime" />
+    <result column="machine_type_cost" jdbcType="INTEGER" property="machineTypeCost" />
+    <result column="machine_branch_num" jdbcType="INTEGER" property="machineBranchNum" />
+    <result column="machine_fenliu_ip" jdbcType="VARCHAR" property="machineFenliuIp" />
+    <result column="machine_is_privilege" jdbcType="INTEGER" property="machineIsPrivilege" />
+    <result column="machine_time_price" jdbcType="INTEGER" property="machineTimePrice" />
+    <result column="machine_reward_achieve_num" jdbcType="INTEGER" property="machineRewardAchieveNum" />
+    <result column="machine_reward_num" jdbcType="INTEGER" property="machineRewardNum" />
+    <result column="member_level" jdbcType="INTEGER" property="memberLevel" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+    <result column="machine_integral" jdbcType="INTEGER" property="machineIntegral" />
+    <result column="channel_ids" jdbcType="VARCHAR" property="channelIds" />
+    <result column="jixiu_account" jdbcType="VARCHAR" property="jixiuAccount" />
+    <result column="is_new_player" jdbcType="INTEGER" property="isNewPlayer" />
+    <result column="black_ids" jdbcType="VARCHAR" property="blackIds" />
+    <result column="new_machine" jdbcType="INTEGER" property="newMachine" />
+    <result column="multiple_price" jdbcType="VARCHAR" property="multiplePrice" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    machine_id, group_id, machine_name, machine_logo, machine_number, machine_mp3, machine_order, 
+    machine_detail_img, machine_price, machine_alias, machine_live_url1, machine_live_url2, 
+    machine_type, machine_entry_cost, machine_push_get, machine_push_lose, user_price, 
+    user_id, machine_user_time, machine_user_info, machine_types, machine_position, machine_group_num, 
+    machine_prize_time, machine_bonus_times, machine_bonus_user_id, machine_watch_time, 
+    machine_flip, machine_time, machine_type_cost, machine_branch_num, machine_fenliu_ip, 
+    machine_is_privilege, machine_time_price, machine_reward_achieve_num, machine_reward_num, 
+    member_level, lrsj, lrzh, zt, bz, gxsj, machine_integral, channel_ids, jixiu_account, 
+    is_new_player, black_ids, new_machine, multiple_price
+  </sql>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.MachineMainExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from machine_main
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.MachineMainExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from machine_main
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.MachineMainExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from machine_main
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update machine_main
+    <set>
+      <if test="record.machineId != null">
+        machine_id = #{record.machineId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineName != null">
+        machine_name = #{record.machineName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineLogo != null">
+        machine_logo = #{record.machineLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineNumber != null">
+        machine_number = #{record.machineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineMp3 != null">
+        machine_mp3 = #{record.machineMp3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineOrder != null">
+        machine_order = #{record.machineOrder,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineDetailImg != null">
+        machine_detail_img = #{record.machineDetailImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machinePrice != null">
+        machine_price = #{record.machinePrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineAlias != null">
+        machine_alias = #{record.machineAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineLiveUrl1 != null">
+        machine_live_url1 = #{record.machineLiveUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineLiveUrl2 != null">
+        machine_live_url2 = #{record.machineLiveUrl2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineType != null">
+        machine_type = #{record.machineType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineEntryCost != null">
+        machine_entry_cost = #{record.machineEntryCost,jdbcType=INTEGER},
+      </if>
+      <if test="record.machinePushGet != null">
+        machine_push_get = #{record.machinePushGet,jdbcType=INTEGER},
+      </if>
+      <if test="record.machinePushLose != null">
+        machine_push_lose = #{record.machinePushLose,jdbcType=INTEGER},
+      </if>
+      <if test="record.userPrice != null">
+        user_price = #{record.userPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineUserTime != null">
+        machine_user_time = #{record.machineUserTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineUserInfo != null">
+        machine_user_info = #{record.machineUserInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineTypes != null">
+        machine_types = #{record.machineTypes,jdbcType=INTEGER},
+      </if>
+      <if test="record.machinePosition != null">
+        machine_position = #{record.machinePosition,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineGroupNum != null">
+        machine_group_num = #{record.machineGroupNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.machinePrizeTime != null">
+        machine_prize_time = #{record.machinePrizeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineBonusTimes != null">
+        machine_bonus_times = #{record.machineBonusTimes,jdbcType=DOUBLE},
+      </if>
+      <if test="record.machineBonusUserId != null">
+        machine_bonus_user_id = #{record.machineBonusUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineWatchTime != null">
+        machine_watch_time = #{record.machineWatchTime,jdbcType=DOUBLE},
+      </if>
+      <if test="record.machineFlip != null">
+        machine_flip = #{record.machineFlip,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineTime != null">
+        machine_time = #{record.machineTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineTypeCost != null">
+        machine_type_cost = #{record.machineTypeCost,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineBranchNum != null">
+        machine_branch_num = #{record.machineBranchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineFenliuIp != null">
+        machine_fenliu_ip = #{record.machineFenliuIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineIsPrivilege != null">
+        machine_is_privilege = #{record.machineIsPrivilege,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineTimePrice != null">
+        machine_time_price = #{record.machineTimePrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineRewardAchieveNum != null">
+        machine_reward_achieve_num = #{record.machineRewardAchieveNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.machineRewardNum != null">
+        machine_reward_num = #{record.machineRewardNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.memberLevel != null">
+        member_level = #{record.memberLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineIntegral != null">
+        machine_integral = #{record.machineIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="record.channelIds != null">
+        channel_ids = #{record.channelIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jixiuAccount != null">
+        jixiu_account = #{record.jixiuAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isNewPlayer != null">
+        is_new_player = #{record.isNewPlayer,jdbcType=INTEGER},
+      </if>
+      <if test="record.blackIds != null">
+        black_ids = #{record.blackIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newMachine != null">
+        new_machine = #{record.newMachine,jdbcType=INTEGER},
+      </if>
+      <if test="record.multiplePrice != null">
+        multiple_price = #{record.multiplePrice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update machine_main
+    set machine_id = #{record.machineId,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=VARCHAR},
+      machine_name = #{record.machineName,jdbcType=VARCHAR},
+      machine_logo = #{record.machineLogo,jdbcType=VARCHAR},
+      machine_number = #{record.machineNumber,jdbcType=VARCHAR},
+      machine_mp3 = #{record.machineMp3,jdbcType=VARCHAR},
+      machine_order = #{record.machineOrder,jdbcType=INTEGER},
+      machine_detail_img = #{record.machineDetailImg,jdbcType=VARCHAR},
+      machine_price = #{record.machinePrice,jdbcType=INTEGER},
+      machine_alias = #{record.machineAlias,jdbcType=VARCHAR},
+      machine_live_url1 = #{record.machineLiveUrl1,jdbcType=VARCHAR},
+      machine_live_url2 = #{record.machineLiveUrl2,jdbcType=VARCHAR},
+      machine_type = #{record.machineType,jdbcType=VARCHAR},
+      machine_entry_cost = #{record.machineEntryCost,jdbcType=INTEGER},
+      machine_push_get = #{record.machinePushGet,jdbcType=INTEGER},
+      machine_push_lose = #{record.machinePushLose,jdbcType=INTEGER},
+      user_price = #{record.userPrice,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      machine_user_time = #{record.machineUserTime,jdbcType=VARCHAR},
+      machine_user_info = #{record.machineUserInfo,jdbcType=VARCHAR},
+      machine_types = #{record.machineTypes,jdbcType=INTEGER},
+      machine_position = #{record.machinePosition,jdbcType=INTEGER},
+      machine_group_num = #{record.machineGroupNum,jdbcType=INTEGER},
+      machine_prize_time = #{record.machinePrizeTime,jdbcType=VARCHAR},
+      machine_bonus_times = #{record.machineBonusTimes,jdbcType=DOUBLE},
+      machine_bonus_user_id = #{record.machineBonusUserId,jdbcType=VARCHAR},
+      machine_watch_time = #{record.machineWatchTime,jdbcType=DOUBLE},
+      machine_flip = #{record.machineFlip,jdbcType=INTEGER},
+      machine_time = #{record.machineTime,jdbcType=INTEGER},
+      machine_type_cost = #{record.machineTypeCost,jdbcType=INTEGER},
+      machine_branch_num = #{record.machineBranchNum,jdbcType=INTEGER},
+      machine_fenliu_ip = #{record.machineFenliuIp,jdbcType=VARCHAR},
+      machine_is_privilege = #{record.machineIsPrivilege,jdbcType=INTEGER},
+      machine_time_price = #{record.machineTimePrice,jdbcType=INTEGER},
+      machine_reward_achieve_num = #{record.machineRewardAchieveNum,jdbcType=INTEGER},
+      machine_reward_num = #{record.machineRewardNum,jdbcType=INTEGER},
+      member_level = #{record.memberLevel,jdbcType=INTEGER},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      machine_integral = #{record.machineIntegral,jdbcType=INTEGER},
+      channel_ids = #{record.channelIds,jdbcType=VARCHAR},
+      jixiu_account = #{record.jixiuAccount,jdbcType=VARCHAR},
+      is_new_player = #{record.isNewPlayer,jdbcType=INTEGER},
+      black_ids = #{record.blackIds,jdbcType=VARCHAR},
+      new_machine = #{record.newMachine,jdbcType=INTEGER},
+      multiple_price = #{record.multiplePrice,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

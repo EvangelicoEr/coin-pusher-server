@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-" "http:">
+<mapper namespace="com.tuibi.dianwan.mapper.UtilCarouselMapper">
+  <resultMap id="BaseResultMap" type="com.tuibi.dianwan.entity.UtilCarousel">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="carousel_id" jdbcType="INTEGER" property="carouselId" />
+    <result column="carousel_name" jdbcType="VARCHAR" property="carouselName" />
+    <result column="carousel_img" jdbcType="VARCHAR" property="carouselImg" />
+    <result column="carousel_sort" jdbcType="INTEGER" property="carouselSort" />
+    <result column="carousel_position" jdbcType="CHAR" property="carouselPosition" />
+    <result column="carousel_way" jdbcType="CHAR" property="carouselWay" />
+    <result column="carousel_url" jdbcType="VARCHAR" property="carouselUrl" />
+    <result column="lrsj" jdbcType="VARCHAR" property="lrsj" />
+    <result column="lrzh" jdbcType="VARCHAR" property="lrzh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="gxsj" jdbcType="VARCHAR" property="gxsj" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tuibi.dianwan.entity.UtilCarousel">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="carousel_details" jdbcType="LONGVARCHAR" property="carouselDetails" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    carousel_id, carousel_name, carousel_img, carousel_sort, carousel_position, carousel_way, 
+    carousel_url, lrsj, lrzh, zt, bz, gxsj
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    carousel_details
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.tuibi.dianwan.entity.UtilCarouselExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from util_carousel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.tuibi.dianwan.entity.UtilCarouselExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from util_carousel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.tuibi.dianwan.entity.UtilCarouselExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from util_carousel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="com.tuibi.dianwan.entity.UtilCarouselExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from util_carousel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_carousel
+    <set>
+      <if test="record.carouselId != null">
+        carousel_id = #{record.carouselId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carouselName != null">
+        carousel_name = #{record.carouselName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carouselImg != null">
+        carousel_img = #{record.carouselImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carouselSort != null">
+        carousel_sort = #{record.carouselSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.carouselPosition != null">
+        carousel_position = #{record.carouselPosition,jdbcType=CHAR},
+      </if>
+      <if test="record.carouselWay != null">
+        carousel_way = #{record.carouselWay,jdbcType=CHAR},
+      </if>
+      <if test="record.carouselUrl != null">
+        carousel_url = #{record.carouselUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrsj != null">
+        lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrzh != null">
+        lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        zt = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null">
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null">
+        gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carouselDetails != null">
+        carousel_details = #{record.carouselDetails,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_carousel
+    set carousel_id = #{record.carouselId,jdbcType=INTEGER},
+      carousel_name = #{record.carouselName,jdbcType=VARCHAR},
+      carousel_img = #{record.carouselImg,jdbcType=VARCHAR},
+      carousel_sort = #{record.carouselSort,jdbcType=INTEGER},
+      carousel_position = #{record.carouselPosition,jdbcType=CHAR},
+      carousel_way = #{record.carouselWay,jdbcType=CHAR},
+      carousel_url = #{record.carouselUrl,jdbcType=VARCHAR},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR},
+      carousel_details = #{record.carouselDetails,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update util_carousel
+    set carousel_id = #{record.carouselId,jdbcType=INTEGER},
+      carousel_name = #{record.carouselName,jdbcType=VARCHAR},
+      carousel_img = #{record.carouselImg,jdbcType=VARCHAR},
+      carousel_sort = #{record.carouselSort,jdbcType=INTEGER},
+      carousel_position = #{record.carouselPosition,jdbcType=CHAR},
+      carousel_way = #{record.carouselWay,jdbcType=CHAR},
+      carousel_url = #{record.carouselUrl,jdbcType=VARCHAR},
+      lrsj = #{record.lrsj,jdbcType=VARCHAR},
+      lrzh = #{record.lrzh,jdbcType=VARCHAR},
+      zt = #{record.zt,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      gxsj = #{record.gxsj,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
